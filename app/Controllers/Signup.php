@@ -43,23 +43,26 @@ class Signup extends BaseController
             // $verificationCode = md5(rand());
             // $verificationLink = base_url(route_to('verify_email') . "?email=$email&code=$verificationCode");
 
-            $data = [
-                'verification_successful' => false,
-            ];
-            $check = $model->insertUser($userid, $email, $password, $role,  $verification_code = null);
-            if ($check) {    
-                // $email_body = "Please click the following link to verify your email address: " . $verificationLink;
-                // $email_subject = "Email verification for your account";
-                // $this->send_email($email, $email_subject, $email_body, $verificationCode);        
-                echo view("template/proj_header");
-                echo view("verify_email_form");
-                echo view("template/proj_footer");
-            } else {
-                $data['error'] = "<div class=\"alert alert-danger\" role=\"alert\"> check your input again!! </div> ";
-                echo view("template/proj_header");
-                echo view('signup', $data);
-                echo view("template/proj_footer");
-            }
+            // $data = [
+            //     'verification_successful' => false,
+            // ];
+            // $check = $model->insertUser($userid, $email, $password, $role,  $verification_code = null);
+            // if ($check) {    
+            //     // $email_body = "Please click the following link to verify your email address: " . $verificationLink;
+            //     // $email_subject = "Email verification for your account";
+            //     // $this->send_email($email, $email_subject, $email_body, $verificationCode);        
+            //     echo view("template/proj_header");
+            //     echo view("verify_email_form");
+            //     echo view("template/proj_footer");
+            // } else {
+            //     $data['error'] = "<div class=\"alert alert-danger\" role=\"alert\"> check your input again!! </div> ";
+            //     echo view("template/proj_header");
+            //     echo view('signup', $data);
+            //     echo view("template/proj_footer");
+            // }
+            echo view("template/proj_header");
+            echo view("login");
+            echo view("template/proj_footer");
         }
 
     }
