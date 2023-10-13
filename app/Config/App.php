@@ -18,7 +18,7 @@ class App extends BaseConfig
      *    http://example.com/
      */
     // public string $baseURL = 'https://infs3202-fbc5d48a.uqcloud.net/yenchen/';
-    public string $baseURL = 'http://34.151.111.195:8080/';
+    public string $baseURL = 'http://35.213.208.226:8080/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
