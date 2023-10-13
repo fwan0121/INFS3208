@@ -51,6 +51,7 @@ class Paths
      * system directories.
      */
     public string $writableDirectory = __DIR__ . '/../../writable';
+    echo "Writable Directory: " . realpath($this->writableDirectory);
 
     /**
      * ---------------------------------------------------------------

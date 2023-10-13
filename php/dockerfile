@@ -6,10 +6,22 @@ LABEL maintainer="yenchen.chen@uqconnect.edu.au"
 ENV TZ=Australia/Sydney
 
 RUN apt-get update && \
-    apt-get install -y libzip-dev zip && \
-    docker-php-ext-install mysqli && \
+    apt-get install -y \
+        libzip-dev \
+        zip \
+        libicu-dev \
+        --no-install-recommends && \
+    docker-php-ext-configure intl && \
+    docker-php-ext-install \
+        mysqli \
+        intl \
+        zip && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
+
+RUN mkdir -p /var/www/html/writable/cache \
+    && chown -R www-data:www-data /var/www/html/writable \
+    && chmod -R 775 /var/www/html/writable
 
 
 # Expose port
