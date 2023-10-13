@@ -48,8 +48,8 @@ class Signup extends BaseController
             ];
             $check = $model->insertUser($userid, $email, $password, $role,  $verification_code = null);
             if ($check) {    
-                $email_body = "Please click the following link to verify your email address: " . $verificationLink;
-                $email_subject = "Email verification for your account";
+                // $email_body = "Please click the following link to verify your email address: " . $verificationLink;
+                // $email_subject = "Email verification for your account";
                 // $this->send_email($email, $email_subject, $email_body, $verificationCode);        
                 echo view("template/proj_header");
                 echo view("verify_email_form");

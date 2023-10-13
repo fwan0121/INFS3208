@@ -44,7 +44,7 @@ class User_model extends Model
             'password' => $hashed_password,
             'role_id' => $role, //default role is student
             'verification_code' => $verification_code,
-            'is_email_verified' => 0
+            'is_email_verified' => 1
         ];
         if ($this->builder->insert($data)) {
             return true;
