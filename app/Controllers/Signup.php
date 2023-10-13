@@ -43,9 +43,9 @@ class Signup extends BaseController
             // $verificationCode = md5(rand());
             // $verificationLink = base_url(route_to('verify_email') . "?email=$email&code=$verificationCode");
 
-            // $data = [
-            //     'verification_successful' => false,
-            // ];
+            $data = [
+                'verification_successful' => false,
+            ];
             // $check = $model->insertUser($userid, $email, $password, $role,  $verification_code = null);
             // if ($check) {    
             //     // $email_body = "Please click the following link to verify your email address: " . $verificationLink;
@@ -60,9 +60,16 @@ class Signup extends BaseController
             //     echo view('signup', $data);
             //     echo view("template/proj_footer");
             // }
-            echo view("template/proj_header");
-            echo view("login");
-            echo view("template/proj_footer");
+            $check = $model->insertUser($userid, $email, $password, $role,  $verification_code = null);
+            if ($check) {
+                echo view("template/proj_header");
+                echo view("login");
+                echo view("template/proj_footer");
+            } else {
+                echo view("template/proj_header");
+                echo view('signup', $data);
+                echo view("template/proj_footer");
+            }
         }
 
     }
