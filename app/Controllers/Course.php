@@ -176,10 +176,10 @@ class Course extends BaseController
         $data = [];
         $data['error'] = "";
         if ($this->request->getMethod() == 'post') {
-            $recaptchaResponse = $this->request->getPost('g-recaptcha-response');
-            $recaptcha = new \ReCaptcha\ReCaptcha("6LcgoeglAAAAAEqMpfbnJD1wtyEvKykndJoQ5l7u");
-            $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
-                              ->verify($recaptchaResponse, $_SERVER['REMOTE_ADDR']);
+            // $recaptchaResponse = $this->request->getPost('g-recaptcha-response');
+            // $recaptcha = new \ReCaptcha\ReCaptcha("6LcgoeglAAAAAEqMpfbnJD1wtyEvKykndJoQ5l7u");
+            // $resp = $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME'])
+            //                   ->verify($recaptchaResponse, $_SERVER['REMOTE_ADDR']);
     
             $rules = [
                 'title' => 'required|min_length[3]',
@@ -215,8 +215,8 @@ class Course extends BaseController
                 ];
             }
             
-    
-            if ($this->validate($rules) && $resp->isSuccess()) {
+            // && $resp->isSuccess()
+            if ($this->validate($rules)) {
                 $model = new Course_model();
                 
                 $courseData = [
@@ -254,8 +254,8 @@ class Course extends BaseController
                 // trigger the pusher event
                 $this->pusher->trigger('notifications', 'new_notification', json_encode($notification));
                 return redirect()->to(base_url("/course/instructorAllCourse"));
-            } else if (!$resp->isSuccess()) {
-                $data['error'] = "The reCAPTCHA was not checked. Please try again.";
+            // } else if (!$resp->isSuccess()) {
+            //     $data['error'] = "The reCAPTCHA was not checked. Please try again.";
             } else {
                 $data['validation'] = $this->validator;
             }

@@ -43,10 +43,10 @@
                 <label for="summary">Summary</label>
                 <textarea class="form-control" id="summary" name="summary" rows="3"></textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="6LcgoeglAAAAAJu8tLfukGu9LCSgdySC5ThaRxek"></div>
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary">Add Course</button>
         </form>
     </div>
