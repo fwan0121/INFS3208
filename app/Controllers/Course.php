@@ -227,8 +227,8 @@ class Course extends BaseController
                     'num_of_chapter' => $this->request->getVar('num_of_chapter'),
                     'course_fee' => $this->request->getVar('course_fee'),
                     'summary' => $this->request->getVar('summary'),
-                    'filename1' => $data['filename1'] ?? '',
-                    'filename2' => $data['filename2'] ?? '',
+                    // 'filename1' => $data['filename1'] ?? '',
+                    // 'filename2' => $data['filename2'] ?? '',
                     
                 ];
             
